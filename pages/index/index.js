@@ -9,7 +9,7 @@ Page({
     duration: 1000,
     loadingHidden: false , // loading
     userInfo: {},
-    swiperCurrent: 0,  
+    swiperCurrent: 0,
     selectCurrent:0,
     categories: [],
     activeCategoryId: 0,
@@ -35,9 +35,9 @@ Page({
   //事件处理函数
   swiperchange: function(e) {
       //console.log(e.detail.current)
-       this.setData({  
-        swiperCurrent: e.detail.current  
-    })  
+       this.setData({
+        swiperCurrent: e.detail.current
+    })
   },
   toDetailsTap:function(e){
     wx.navigateTo({
@@ -52,15 +52,15 @@ Page({
     }
   },
   bindTypeTap: function(e) {
-     this.setData({  
-        selectCurrent: e.index  
-    })  
+     this.setData({
+        selectCurrent: e.index
+    })
   },
   onLoad: function () {
     var that = this
-    wx.setNavigationBarTitle({
-      title: wx.getStorageSync('mallName')
-    })
+    // wx.setNavigationBarTitle({
+    //   title: wx.getStorageSync('mallName')
+    // })
     wx.request({
       url: 'https://api.it120.cc/' + app.globalData.subDomain + '/banner/list',
       data: {
@@ -75,7 +75,7 @@ Page({
           })
         } else {
           that.setData({
-            banners: res.data.data
+            banners: res.data.data || ''
           });
         }
       }
@@ -101,7 +101,7 @@ Page({
     that.getNotice ();
   },
   onPageScroll(e) {
-    let scrollTop = this.data.scrollTop
+    // let scrollTop = this.data.scrollTop
     this.setData({
       scrollTop: e.scrollTop
     })
@@ -123,7 +123,8 @@ Page({
         pageSize: this.data.pageSize
       },
       success: function(res) {
-        wx.hideLoading()        
+        wx.stopPullDownRefresh();
+        wx.hideLoading()
         if (res.data.code == 404 || res.data.code == 700){
           let newData = { loadingMoreHidden: false }
           if (!append) {
@@ -135,7 +136,7 @@ Page({
         let goods = [];
         if (append) {
           goods = that.data.goods
-        }        
+        }
         for(var i=0;i<res.data.data.length;i++){
           goods.push(res.data.data[i]);
         }

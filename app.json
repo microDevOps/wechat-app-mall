@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/start/start",
+  
     "pages/index/index",
     "pages/goods-details/index",
     "pages/shop-cart/index",
@@ -22,7 +22,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "减肥小程序",
     "navigationBarTextStyle":"black",
     "onReachBottomDistance":50
   },

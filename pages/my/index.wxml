@@ -6,17 +6,18 @@
   <view style="height:20rpx;background: #eee;width:100%;"></view>
   <view class="my-item" style='background:none;display:flex;flex-direction:column;height:auto;'>
     <view>
-      余额 {{balance}} 元， 冻结 {{freeze}} 元
+      余额 {{balance}} 元
     </view>
     <view style='display:flex;padding-bottom:20rpx;'>
       <button type='primary' style='width:100%;margin-right:70rpx;' bindtap="recharge">充值</button>
-      <button type='warn' style='width:100%;margin-right:70rpx;' bindtap="withdraw">提现</button>
+      <!-- <button type='warn' style='width:100%;margin-right:70rpx;' bindtap="withdraw">提现</button> -->
     </view>
   </view>
   <view class="my-item" style='background:none;display:flex;'>
     <view>当前积分 {{score}} </view>
-    <button wx:if="{{score_sign_continuous == 0}}" style='height:80rpx;margin-right:70rpx;' bindtap="scoresign">每日签到</button>
+   <!-- <button wx:if="{{score_sign_continuous == 0}}" style='height:80rpx;margin-right:70rpx;' bindtap="scoresign">每日签到</button>
     <button wx:if="{{score_sign_continuous > 0}}" disabled='true' style='height:80rpx;margin-right:70rpx;'>已连续{{score_sign_continuous}}天签到</button>
+  -->
   </view>
   <view class="my-item">
     <navigator url="/pages/score-excharge/index" hover-class="navigator-hover">积分兑换</navigator>
@@ -45,8 +46,5 @@
   <view class="my-item" style="border:none;padding:0rpx;margin:0rpx;background:none;border:none;height:auto;line-height:auto;">
     <button type="warn" bindtap="relogin">重新授权登录</button>
   </view>
-  
-  <view style="height:20rpx;background: #eee;width:100%;"></view>
-  <view class="version">Powered by EastWorld v {{version}}</view>
-  <view style="height:20rpx;background: #eee;width:100%;"></view>
+
 </view>
